@@ -1,0 +1,92 @@
+#Please ensure the format is correct
+#The first column should be title Lipid and consist of the identification
+#All samples should be in the following columns labelled A-J
+#If you do not have ten samples... delete the ones you do not need
+
+library(tidyverse)
+library(dplyr)
+library(xlsx)
+
+#Insert the proper name of CSV in the insert name here section 
+df <- read_csv("Insert_name_here.csv")
+
+Sample.1 <- (df |>
+             group_by(Lipid) |>
+             summarise(Sample_1 = sum(A)) |>
+             mutate(percentage = Sample_1 / sum(Sample_1)*100))
+
+Sample.2 <- (df |>
+               group_by(Lipid) |>
+               summarise(Sample_2= sum(B)) |>
+               mutate(percentage = Sample_2 / sum(Sample_2)*100))
+
+Sample.3 <- (df |>
+               group_by(Lipid) |>
+               summarise(Sample_3 = sum(C)) |>
+               mutate(percentage = Sample_3 / sum(Sample_3)*100))
+
+Sample.4 <- (df |>
+               group_by(Lipid) |>
+               summarise(Sample_4= sum(D)) |>
+               mutate(percentage = Sample_4 / sum(Sample_4)*100))
+
+Sample.5 <- (df |>
+               group_by(Lipid) |>
+               summarise(Sample_5 = sum(E)) |>
+               mutate(percentage = Sample_5 / sum(Sample_5)*100))
+
+Sample.6 <- (df |>
+               group_by(Lipid) |>
+               summarise(Sample_6= sum(F)) |>
+               mutate(percentage = Sample_6 / sum(Sample_6)*100))
+
+Sample.7 <- (df |>
+               group_by(Lipid) |>
+               summarise(Sample_7 = sum(G)) |>
+               mutate(percentage = Sample_7 / sum(Sample_7)*100))
+
+Sample.8 <- (df |>
+               group_by(Lipid) |>
+               summarise(Sample_8= sum(H)) |>
+               mutate(percentage = Sample_8 / sum(Sample_8)*100))
+
+Sample.9 <- (df |>
+               group_by(Lipid) |>
+               summarise(Sample_9 = sum(I)) |>
+               mutate(percentage = Sample_9 / sum(Sample_9)*100))
+
+Sample.10 <- (df |>
+               group_by(Lipid) |>
+               summarise(Sample_10= sum(J)) |>
+               mutate(percentage = Sample_10 / sum(Sample_10)*100))
+
+# Write the first data set in a new workbook
+write.xlsx(Sample.1, file = "Title_Dataset.xlsx",
+           sheetName = "Sample 1", append = FALSE)
+
+write.xlsx(Sample.2, file = "Title_Dataset.xlsx",
+           sheetName = "Sample 2", append = TRUE)
+
+write.xlsx(Sample.3, file = "Title_Dataset.xlsx",
+           sheetName = "Sample 3", append = TRUE)
+
+write.xlsx(Sample.4, file = "Title_Dataset.xlsx",
+           sheetName = "Sample 4", append = TRUE)
+
+write.xlsx(Sample.5, file = "Title_Dataset.xlsx",
+           sheetName = "Sample 5", append = TRUE)
+
+write.xlsx(Sample.6, file = "Title_Dataset.xlsx",
+           sheetName = "Sample 6", append = TRUE)
+
+write.xlsx(Sample.7, file = "Title_Dataset.xlsx",
+           sheetName = "Sample 7", append = TRUE)
+
+write.xlsx(Sample.8, file = "Title_Dataset.xlsx",
+           sheetName = "Sample 8", append = TRUE)
+
+write.xlsx(Sample.9, file = "Title_Dataset.xlsx",
+           sheetName = "Sample 9", append = TRUE)
+
+write.xlsx(Sample.10, file = "Title_Dataset.xlsx",
+           sheetName = "Sample 10", append = TRUE)
